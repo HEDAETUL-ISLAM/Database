@@ -1,0 +1,79 @@
+create table Location(l_id varchar2(10) primary key,u_location varchar2(50)not null,u_code number(10));
+
+create table University(u_code number(10) primary key,u_name varchar2(50)not null,u_location varchar2(100)not null,a_id varchar2(10));
+
+create table Administration(a_id varchar2(10) primary key,a_name varchar2(20)not null,a_phone number(11)unique,a_email varchar2(15)unique,a_designation varchar2(15));
+
+create table Department(d_id varchar2(10) primary key,d_name varchar2(50)not null,check(d_name IN('FACULTY OF SCIENCE & INFORMATION TECHNOLOGY','FACULTY OF ENGINEERING','FACULTY OF BUSINESS ADMINISTRATION','FACULTY OF ART & SOCIAL SCIENCES')),d_sector varchar2(6)not null,check (d_sector in('CSE','EEE','BBA','ENG','ACH','CSSE','SE','CS')),a_id varchar2(10));
+
+create table Teacher(t_id varchar2(10) primary key,t_name varchar2(20)not null,t_phone number(11)unique,t_email varchar2(15)unique,t_address varchar2(50)not null,join_date date not null,d_id varchar2(10),tpe_no number(4),research_id varchar2(10));
+
+create table Teacher_Exchange(t_exchange_id varchar2(10) primary key,t_exchange_home varchar2(100)default NULL,t_exchange_abroad varchar2(100) default NULL,t_id varchar2(10),d_id varchar2(10));
+
+create table Course(c_credit number(2)not null,c_code number(4)not null,c_name varchar2(50)not null,t_id varchar2(10),d_id varchar2(10));
+
+create table Salary(s_amount number(10)not null,s_no number(4) primary key,s_policy varchar2(10)default 'N\A',check(s_policy IN('Cash','Cheque')),t_id varchar2(10),u_code number(10));
+
+create table TPE(tpe_no number(4) primary key,tpe_comment varchar2(200)default 'NO COMMENTS',tpe_performance varchar2(10)not null,promotion_no number(4));
+
+create table Attendance(a_date TIMESTAMP,a_ontime varchar2(5)not null,a_offtime varchar2(5)not null,t_id varchar2(10),r_id varchar2(10));
+
+create table Registrar(r_id varchar2(10) primary key,r_name varchar2(15)not null,r_phone number(11)unique,r_email varchar2(50)unique);
+
+create table Promotion(promotion_no number(4) primary key,promotion_designation varchar2(20)not null,t_id varchar2(10));
+
+create table Vacation(v_date date primary key,v_day number(2) default 0,v_semester varchar2(15)default 'N\A',v_application varchar2(500)default 'N\A',r_id varchar2(10));
+
+create table Vacation2(v_count number(2)default 0,v_date date,t_id varchar2(10));
+
+create table Foreign_Faculty(ff_id varchar2(10)primary key,ff_name varchar2(20)not null,ff_institution varchar2(100)not null,ff_designation varchar2(15) default 'N\A',ff_soial varchar2(500) default 'N\A',t_id varchar2(10));
+
+create table FF_Course(c_code number(4),ff_country varchar2(10)not null,ff_id varchar2(10));
+
+create table Research(research_id varchar2(10) primary key,research_name varchar2(50)not null,research_field varchar2(50)not null);
+
+create table Grade(g_no number(4) primary key,g_system varchar2(10)not null,t_id varchar2(10));
+
+create table Consultant_Hour(room_no number(5)not null,class_hour varchar2(10),t_id varchar2(10));
+
+alter table Location add constraint L1 foreign key(u_code) references University(u_code);
+
+alter table University add constraint U1 foreign key(a_id) references Administration(a_id);
+
+alter table Department add constraint D1 foreign key(a_id) references Administration(a_id);
+
+alter table Teacher add constraint T1 foreign key(d_id) references Department(d_id);
+
+alter table Teacher add constraint T2 foreign key(research_id) references Research(research_id);
+
+alter table Teacher add constraint T3 foreign key(tpe_no) references TPE(tpe_no);
+
+alter table Teacher_Exchange add constraint TE1 foreign key(t_id) references Teacher(t_id);
+
+alter table Teacher_Exchange add constraint TE2 foreign key(d_id) references Department(d_id);
+
+alter table Course add constraint C1 foreign key(d_id) references Department(d_id);
+
+alter table Course add constraint C2 foreign key(t_id) references Teacher(t_id);
+
+alter table Salary add constraint S1 foreign key(t_id) references Teacher(t_id);
+
+alter table Salary add constraint S2 foreign key(u_code) references University(u_code);
+
+alter table Attendance add constraint A1 foreign key(t_id) references Teacher(t_id);
+
+alter table Attendance add constraint A2 foreign key(r_id) references Registrar(r_id);
+
+alter table Vacation add constraint V1 foreign key(r_id) references Registrar(r_id);
+
+alter table Vacation2 add constraint V21 foreign key(v_date) references Vacation(v_date);
+
+alter table Vacation2 add constraint V22 foreign key(t_id) references Teacher(t_id);
+
+alter table Foreign_Faculty add constraint FF1 foreign key(t_id) references Teacher(t_id);
+
+alter table FF_Course add constraint FFC1 foreign key(ff_id) references Foreign_Faculty(ff_id);
+
+alter table Grade add constraint G1 foreign key(t_id) references Teacher(t_id);
+
+alter table Consultant_Hour add constraint CT1 foreign key(t_id) references Teacher(t_id);
