@@ -1,0 +1,227 @@
+insert into Location(l_id,u_location,u_code) values('78431','Kuratoli Road,Kuril,Khilkhet,Dhaka,Bangladesh','1229');
+
+insert into Location(l_id,u_location,u_code) values('77450','Road No-10,Block-B,Banani,Dhaka,Bangladesh','1212');
+
+insert into Location(l_id,u_location,u_code) values('78435','Road No-4,Block-A,Bashundhara,Dhaka,Bangladesh','1208');
+
+insert into Location(l_id,u_location,u_code) values('78455','Aftabnagar,Rampura,Dhaka,Bangladesh','1215');
+
+insert into Location(l_id,u_location,u_code) values('78433','Mohakhali,66 Bir Uttam Road,Dhaka,Bangladesh','1205');
+
+select * from Location;
+
+insert into University (u_code,u_name,a_id) values('1229','American International University Bangladesh','13-77334-1');
+
+insert into University (u_code,u_name,a_id) values('1212','South East University','Road No-10,Block-B,Banani,Dhaka,Bangladesh','12-55434-1');
+
+insert into University (u_code,u_name,a_id) values('1208','North South University','Road No-4,Block-A,Bashundhara,Dhaka,Bangladesh','14-31471-2');
+
+insert into University (u_code,u_name,a_id) values('1215','East West University','Aftabnagar,Rampura,Dhaka,Bangladesh','11-55431-3');
+
+insert into University (u_code,u_name,a_id) values('1205','Brac University','Mohakhali,66 Bir Uttam AK Khandakar Road,Dhaka,Bangladesh','10-13545-1');
+
+select * from University;
+
+insert into Administration(a_id,a_name,a_phone,a_email,a_designation) values ('13-77334-1','Md Marufuzzaman','01815414282','marufuzzaman@aiub.edu','Administrative Assistant');
+
+insert into Administration(a_id,a_name,a_phone,a_email,a_designation) values ('14-31471-2','Mukit Islam','01741404605','mukit@nsu.edu','Administrative Director');
+
+insert into Administration(a_id,a_name,a_phone,a_email,a_designation) values ('12-55434-1','Md Asif Rahman','01711532652','asifrahman@seu.edu','Administrative Coordinator');
+
+insert into Administration(a_id,a_name,a_phone,a_email,a_designation) values ('11-55431-3','Khorshed Alam','01613414282','khorshed@ewu.edu','Administrative Manager');
+
+insert into Administration(a_id,a_name,a_phone,a_email,a_designation) values ('10-13545-1','Khairul Bhuiyan','01971749730','khairul@brac.edu','Administrator');
+
+select * from Administration;
+
+insert into Department(d_id,d_name,d_sector,a_id) values('FSIT-105','FACULTY OF SCIENCE & INFORMATION TECHNOLOGY','CSE','13-77334-1');
+
+insert into Department(d_id,d_name,d_sector,a_id) values('FSIT-107','FACULTY OF SCIENCE & INFORMATION TECHNOLOGY','CSSE','14-31471-2');
+
+insert into Department(d_id,d_name,d_sector,a_id) values('ENGG-113','FACULTY OF ENGINEERING','EEE','12-55434-1');
+
+insert into Department(d_id,d_name,d_sector,a_id) values('ENGG-115','FACULTY OF ENGINEERING','ACH','11-55431-3');
+
+insert into Department(d_id,d_name,d_sector,a_id) values('FBA-109','FACULTY OF BUSINESS ADMINISTRATION','BBA','10-13545-1');
+
+select * from Department;
+
+insert into Teacher(t_id,t_name,t_phone,t_email,t_address,join_date,d_id,tpe_no,research_id) values ('11-33451-1','Rumana Afrin','01711721452','rafrin@aiub.edu','911/4,Rajarbag,Dhaka,Bangladesh','11-FEB-13','FSIT-105','211','7809');
+
+insert into Teacher(t_id,t_name,t_phone,t_email,t_address,join_date,d_id,tpe_no,research_id) values ('02-33435-1','Juena Nowshin','01785412580','juena@aiub.edu','Road NO-8,Sector-6,Uttara,Dhaka,Bangladesh','02-MAY-31','FSIT-107','231','7812');
+
+insert into Teacher(t_id,t_name,t_phone,t_email,t_address,join_date,d_id,tpe_no,research_id) values ('07-55132-2','Salma Nur','01535471489','salma@aiub.edu','Road N0-3,House No-3/B,Banasree,Dhaka,Bangladesh','07-MAR-10','ENGG-113','233','7810');
+
+insert into Teacher(t_id,t_name,t_phone,t_email,t_address,join_date,d_id,tpe_no,research_id) values ('13-35250-3','Sumaiya Islam','01711285723','sislam@aiub.edu','Road No-1,Jorpukur Par,Khilgaon,Dhaka,Bangladesh','13-OCT-17','ENGG-115','215','7815');
+
+insert into Teacher(t_id,t_name,t_phone,t_email,t_address,join_date,d_id,tpe_no,research_id) values ('15-33225-1','Muniba Bari','01686974686','mbari@aiub.edu','Road No-7,House No-313,Banani,Dhaka,Bangladesh','15-DEC-23','FBA-109','218','7820');
+
+select * from Teacher;
+
+insert into Teacher_Exchange(t_exchange_id,t_exchange_home,t_exchange_abroad,t_id,d_id) values ('13','United International Universitty','','11-33451-1','FSIT-105');
+
+insert into Teacher_Exchange(t_exchange_id,t_exchange_home,t_exchange_abroad,t_id,d_id) values ('23','','Melbourne University','02-33435-1','FSIT-107');
+
+insert into Teacher_Exchange(t_exchange_id,t_exchange_home,t_exchange_abroad,t_id,d_id) values ('27','North South University','','07-55132-2','ENGG-113');
+
+insert into Teacher_Exchange(t_exchange_id,t_exchange_home,t_exchange_abroad,t_id,d_id) values ('33','Brac Universitty','','13-35250-3','ENGG-115');
+
+insert into Teacher_Exchange(t_exchange_id,t_exchange_home,t_exchange_abroad,t_id,d_id) values ('39','','Hokkaido University','15-33225-1','FBA-109');
+
+select * from Teacher_Exchange;
+
+insert into Course(c_credit,c_code,c_name,d_id,t_id) values ('3','2211','Intoduction To Database','FSIT-105','11-33451-1');
+
+insert into Course(c_credit,c_code,c_name,d_id,t_id) values ('3','2213','Algorithm','FSIT-107','02-33435-1');
+
+insert into Course(c_credit,c_code,c_name,d_id,t_id) values ('3','1115','Physics-1','ENGG-113','07-55132-2');
+
+insert into Course(c_credit,c_code,c_name,d_id,t_id) values ('3','1117','Electrical Circuits-1','ENGG-115','13-35250-3');
+
+insert into Course(c_credit,c_code,c_name,d_id,t_id) values ('3','3122','Principle Of Accounting','FBA-109','15-33225-1');
+
+select * from Course;
+
+insert into Salary(s_amount,s_no,s_policy,t_id,u_code) values ('60000','103','Cash','11-33451-1','1229');
+
+insert into Salary(s_amount,s_no,s_policy,t_id,u_code) values ('100000','104','Cheque','02-33435-1','1212');
+
+insert into Salary(s_amount,s_no,s_policy,t_id,u_code) values ('50000','105','Cash','07-55132-2','1208');
+
+insert into Salary(s_amount,s_no,s_policy,t_id,u_code) values ('80000','109','Cheque','13-35250-3','1215');
+
+insert into Salary(s_amount,s_no,s_policy,t_id,u_code) values ('150000','107','','15-33225-1','1205');
+
+select * from Salary;
+
+insert into TPE(tpe_no,tpe_comment,tpe_performance,promotion_no) values ('211','Praises,elicits and responds to student questions','Good','103');
+
+insert into TPE(tpe_no,tpe_comment,tpe_performance,promotion_no) values ('231','Teaches accurate and up-to-date information','Best','105');
+
+insert into TPE(tpe_no,tpe_comment,tpe_performance,promotion_no) values ('233','Coordinates learning content with instructional objectives','Average','109');
+
+insert into TPE(tpe_no,tpe_comment,tpe_performance,promotion_no) values ('215','Presents learning content in a logical sequential order','Good','107');
+
+insert into TPE(tpe_no,tpe_comment,tpe_performance,promotion_no) values ('218','Encourages participation from all students','Worst','111');
+
+select * from TPE;
+
+insert into Attendance(a_date,a_ontime,a_offtime,t_id,r_id) values ('13-MAY-05 07:15:31','Yes','No','11-33451-1','15-22471-1');
+
+insert into Attendance(a_date,a_ontime,a_offtime,t_id,r_id) values ('14-JAN-07 07:58:26','No','Yes','15-33225-1','14-33225-1');
+
+insert into Attendance(a_date,a_ontime,a_offtime,t_id,r_id) values ('25-MAY-05 07:48:11','Yes','No','02-33435-1','10-22391-3');
+
+insert into Attendance(a_date,a_ontime,a_offtime,t_id,r_id) values ('27-MAR-05 07:30:51','Yes','No','07-55132-2','12-44557-1');
+
+insert into Attendance(a_date,a_ontime,a_offtime,t_id,r_id) values ('19-NOV-05 08:03:13','Yes','No','13-35250-3','05-22471-3');
+
+select * from Attendance;
+
+insert into Registrar(r_id,r_name,r_phone,r_email) values ('15-22471-1','Mijan Alam','01625812345','mijan@gmail.com');
+
+insert into Registrar(r_id,r_name,r_phone,r_email) values ('14-33225-1','Tanvir Alam','01512398758','talam@gmail.com');
+
+insert into Registrar(r_id,r_name,r_phone,r_email) values ('10-22391-3','Polash Bhuiyan','01974749730','polash@yahoo.com');
+
+insert into Registrar(r_id,r_name,r_phone,r_email) values ('12-44557-1','Shibli Mahmud','01815414282','shibli@outlook.com');
+
+insert into Registrar(r_id,r_name,r_phone,r_email) values ('05-22471-3','Nasir Uddin','01532652159','nasir@gmail.com');
+
+select * from registrar;
+
+insert into Promotion(promotion_no,promotion_designation,t_id) values ('103','Associate Professor','11-33451-1');
+
+insert into Promotion(promotion_no,promotion_designation,t_id) values ('105','Dean','02-33435-1');
+
+insert into Promotion(promotion_no,promotion_designation,t_id) values ('109','Assistant Professor ','07-55132-2');
+
+insert into Promotion(promotion_no,promotion_designation,t_id) values ('107','Senior Lecturer ','13-35250-3');
+
+insert into Promotion(promotion_no,promotion_designation,t_id) values ('111','Lecturer','15-33225-1');
+
+select * from Promotion
+
+insert into Vacation(v_date,v_day,v_semester,v_application,r_id) values ('11-FEB-13','10','Spring,17-18','With Application','15-22471-1');
+
+insert into Vacation(v_date,v_day,v_semester,v_application,r_id) values ('02-MAY-31','5','Summer,12-13','Without Application','14-33225-1');
+
+insert into Vacation(v_date,v_day,v_semester,v_application,r_id) values ('07-MAR-10','1','Spring,17-18','With Application','10-22391-3');
+
+insert into Vacation(v_date,v_day,v_semester,v_application,r_id) values ('13-OCT-17','2','Summer,15-16','Without Application','12-44557-1');
+
+insert into Vacation(v_date,v_day,v_semester,v_application,r_id) values ('17-AUG-22','6','Fall,17-18','Without Application','05-22471-3');
+
+select * from Vacation;
+
+insert into Vacation2(v_count,v_date,t_id) values ('1','17-AUG-22','11-33451-1');
+
+insert into Vacation2(v_count,v_date,t_id) values ('2','13-OCT-17','02-33435-1');
+
+insert into Vacation2(v_count,v_date,t_id) values ('1','07-MAR-10','07-55132-2');
+
+insert into Vacation2(v_count,v_date,t_id) values ('1','02-MAY-31','13-35250-3');
+
+insert into Vacation2(v_count,v_date,t_id) values ('1','11-FEB-13','15-33225-1');
+
+select * from Vacation2;
+
+insert into Foreign_Faculty(ff_id,ff_name,ff_institution,ff_designation,ff_soial,t_id) values ('03-47584-1','Prof.Kashinath Roy','University of Delhi','Dean','','11-33451-1');
+
+insert into Foreign_Faculty(ff_id,ff_name,ff_institution,ff_designation,ff_soial,t_id) values ('07-47584-3','Jacob Jones','University of Auckland','Professor','','02-33435-1');
+
+insert into Foreign_Faculty(ff_id,ff_name,ff_institution,ff_designation,ff_soial,t_id) values ('12-45784-2','kane Willamson','Monash University','Senior Lecturer','','07-55132-2');
+
+insert into Foreign_Faculty(ff_id,ff_name,ff_institution,ff_designation,ff_soial,t_id) values ('15-47584-3','Wriddiman Shaha','University of Mumbai','Lecturer','','13-35250-3');
+
+insert into Foreign_Faculty(ff_id,ff_name,ff_institution,ff_designation,ff_soial,t_id) values ('13-47584-2','Dr.Steven Scott','University of Adelaide','Professor','','15-33225-1');
+
+select * from Foreign_Faculty;
+
+insert into FF_Course(c_code,ff_country,ff_id) values ('2311','India','03-47584-1');
+
+insert into FF_Course(c_code,ff_country,ff_id) values ('1122','NewZealand','07-47584-3');
+
+insert into FF_Course(c_code,ff_country,ff_id) values ('3112','Australia','12-45784-2');
+
+insert into FF_Course(c_code,ff_country,ff_id) values ('2142','India','15-47584-3');
+
+insert into FF_Course(c_code,ff_country,ff_id) values ('2411','Australia','13-47584-2');
+
+select * from FF_Course;
+
+insert into Research(research_id,research_name,research_field) values ('7809','Developing Computer Security','Algorithmics,Programming,Software');
+
+insert into Research(research_id,research_name,research_field) values ('7812','Measuring X-Ray Wave Using Laplace','Applied Mathematics, Computation and Simulation');
+
+insert into Research(research_id,research_name,research_field) values ('7810','The Internet Of Things','Networks,Systems,Distributed Computing');
+
+insert into Research(research_id,research_name,research_field) values ('7815','Parallel Architecture Computing','Architecture');
+
+insert into Research(research_id,research_name,research_field) values ('7820','Fuel Cells,Solar Energy','Energy Engineering');
+
+select * from research;
+
+insert into Grade(g_no,g_system,t_id) values ('145','Average','11-33451-1');
+
+insert into Grade(g_no,g_system,t_id) values ('155','Break Down','02-33435-1');
+
+insert into Grade(g_no,g_system,t_id) values ('115','Partial','07-55132-2');
+
+insert into Grade(g_no,g_system,t_id) values ('135','Average','13-35250-3');
+
+insert into Grade(g_no,g_system,t_id) values ('116','Average','15-33225-1');
+
+select * from Grade;
+
+insert into Consultant_Hour(room_no,class_hour,t_id) values ('43112','10-2','11-33451-1');
+
+insert into Consultant_Hour(room_no,class_hour,t_id) values ('43114','8-12','02-33435-1');
+
+insert into Consultant_Hour(room_no,class_hour,t_id) values ('43222','12-5','07-55132-2');
+
+insert into Consultant_Hour(room_no,class_hour,t_id) values ('43102','11-3','13-35250-3');
+
+insert into Consultant_Hour(room_no,class_hour,t_id) values ('43212','10-4','15-33225-1');
+
+select * from Consultant_Hour;
